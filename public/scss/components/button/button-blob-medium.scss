@@ -1,0 +1,71 @@
+@import 'button-blob';
+
+/**
+  Medium Blob Button Variables
+ */
+
+$fontSize: 18;
+
+$border-rectangle: 6;
+$paddingX-rectangle: 16;
+$paddingY-rectangle: 6;
+
+$border-circle: 30;
+$paddingX-circle: 7;
+$paddingY-circle: 7;
+
+/**
+  Medium Border Buttons
+  - Rectangle
+ */
+
+.blob-btn-border-red-md {
+  @include mb-blob-btn(red, false, $border-rectangle, $fontSize, $paddingX-rectangle, $paddingY-rectangle);
+}
+
+.blob-btn-border-black-md {
+  @include mb-blob-btn(black, false, $border-rectangle, $fontSize, $paddingX-rectangle, $paddingY-rectangle);
+}
+
+.blob-btn-border-gold-md {
+  @include mb-blob-btn(gold, false, $border-rectangle, $fontSize, $paddingX-rectangle, $paddingY-rectangle);
+}
+
+/**
+  Medium Border Buttons
+  - Circle
+ */
+
+.blob-btn-border-circle-red-md {
+  @include mb-blob-btn(red, false, $border-circle, $fontSize, $paddingX-circle, $paddingY-circle);
+}
+
+.blob-btn-border-circle-black-md {
+  @include mb-blob-btn(black, false, $border-circle, $fontSize, $paddingX-circle, $paddingY-circle);
+}
+
+/**
+  Medium Buttons
+  - Rectangle
+ */
+
+.blob-btn-red-md {
+  @include mb-blob-btn(red, true, $border-rectangle, $fontSize, $paddingX-rectangle, $paddingY-rectangle);
+}
+
+.blob-btn-black-md {
+  @include mb-blob-btn(black, true, $border-rectangle, $fontSize, $paddingX-rectangle, $paddingY-rectangle);
+}
+
+/**
+  Medium Buttons
+  - Circle
+ */
+
+.blob-btn-circle-black-md {
+  @include mb-blob-btn(black, true, $border-circle, $fontSize, $paddingX-circle, $paddingY-circle);
+}
+
+.blob-btn-circle-red-md {
+  @include mb-blob-btn(red, true, $border-circle, $fontSize, $paddingX-circle, $paddingY-circle);
+}

@@ -12,6 +12,7 @@ import PageHome from "./pages/home";
 import PageCharacters from "./pages/characters";
 import PageCharacter from "./pages/character";
 import PageFavouriteCharacters from "./pages/favourite-characters";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -22,19 +23,8 @@ function App() {
             <Route path={"/characters"} element={<PageCharacters/>}/>
             <Route path={"/character/:id"} element={<PageCharacter/>}/>
             <Route path={"/favourite-characters"} element={<PageFavouriteCharacters/>}/>
-            {/*<Route path={"products"} element={<Products/>}/>*/}
-            {/*<Route path={"cookie"} element={<Cookie/>}/>*/}
-            {/*<Route path={"account-data"} element={<AccountData/>}/>*/}
-            {/*<Route path={"subscriptions"} element={<Subscriptions/>}/>*/}
-            {/*<Route path={"contact"} element={<Contact/>}/>*/}
-            {/*<Route path={"faq"} element={<Faq/>}/>*/}
-            {/*<Route path={"delete-account"} element={<DeleteAccount/>}/>*/}
-            {/*<Route path={"settings"} element={<Settings/>}/>*/}
-            {/*<Route path={"sign-in"} element={<SignIn/>}/>*/}
-            {/*<Route path={"sign-up"} element={<SignUp/>}/>*/}
-            {/*<Route path={"forgot-password"} element={<ForgotPassword/>}/>*/}
           </SlideRoutes>
-        {/*<Footer/>*/}
+          <Footer/>
       </Router>
   );
 }

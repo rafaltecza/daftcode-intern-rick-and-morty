@@ -1,0 +1,51 @@
+.pagination {
+  .break {
+    a {
+      display: block;
+      border-radius: 8px;
+      background-color: $primary;
+      height: 100%;
+      width: 100%;
+      min-width: 42px;
+      border: none;
+      text-align: center;
+      color: white;
+      padding-top: 10px;
+    }
+  }
+  .page-item {
+
+    &.active {
+      a {
+        background-color: rgb(41, 48, 61);
+        border: solid rgba(255,255,255,0.2) 2px;
+        padding-top: 8px;
+
+      }
+    }
+
+    .page-link {
+      border-radius: 8px;
+      background-color: $primary;
+      height: 100%;
+      width: 100%;
+      min-width: 42px;
+      border: none;
+      text-align: center;
+      color: white;
+      padding-top: 10px;
+    }
+  }
+
+  .prev,
+  .next {
+    border-radius: 8px;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+
+}

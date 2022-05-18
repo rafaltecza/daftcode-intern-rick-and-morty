@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import {Favourite} from "../../Favourite";
+import {CharacterBackground, CharacterCard, CharacterFavourite, CharacterTitle} from "./DemoElements";
+import useImageLoader from "../../Image";
 
 interface IRequiredCharacterDemoProps {
     id: number
@@ -45,22 +47,24 @@ const defaultProps: IOptionalCharacterDemoProps = {
 const CharacterDemo = (props: ICharactersDemoProps) => {
     const { id, name, status, species, type, gender, origin_name, origin_url, location_name, location_url,
         image, episode, url, created } = props;
-
+    const img = useImageLoader("images/loader.gif", image);
     return (
-        <div>
-            <Favourite id={String(id)}/>
+        <div className={"character-demo"} >
+                <CharacterCard className={"card hover-effect bg-transparent border-0 p-0"}>
+                    <div className={"position-relative"}>
+                            <div className={"card-body text-center"}>
+                                <CharacterFavourite className={"hover-effect"} >
+                                    <Favourite id={String(id)}/>
+                                </CharacterFavourite>
+                                <Link to={"../character/" + id}>
+                                    <CharacterBackground className={"character-bg"} src={img[0]} alt={""}/>
+                                    <CharacterTitle>{name}</CharacterTitle>
+                                </Link>
 
-            <Link to={"../character/" + id}>
-                <div className={"card"}>
-                    <div className={"card-body text-center"}>
-
-
-
-                        <img src={image} alt={""}/>
-                        <h3>{name}</h3>
+                            </div>
                     </div>
-                </div>
-            </Link>
+
+                </CharacterCard>
 
         </div>
     );

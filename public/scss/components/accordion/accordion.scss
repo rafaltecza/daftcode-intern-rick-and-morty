@@ -1,0 +1,44 @@
+@import "public/scss/components/background/background-gradient";
+
+.accordion {
+  .accordion-button {
+    color: white;
+    @include getFourAnimatedGradient(45, rgb(17, 176, 200), rgb(20, 176, 199), rgb(37, 180, 201), rgb(52, 180, 199));
+  }
+
+  .accordion-button:after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+  }
+
+  .accordion-item:first-of-type .accordion-button {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .accordion-item:last-of-type .accordion-button.collapsed {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .accordion-item:last-of-type .accordion-collapse {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .first {
+    .accordion-button {
+      border-top-left-radius: calc(0.60rem - 1px) !important;
+      border-top-right-radius: calc(0.60rem - 1px) !important;
+    }
+  }
+  //
+  //
+  //.accordion-item:first-of-type .accordion-button {
+  //  //border-top-left-radius: calc(0.60rem - 1px);
+  //  //border-top-right-radius: calc(0.60rem - 1px);
+  //  //border-top-left-radius: 0;
+  //  //border-top-right-radius: 0;
+  //  border-radius: 0;
+  //}
+}
+

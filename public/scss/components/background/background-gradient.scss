@@ -1,0 +1,60 @@
+@mixin getFourAnimatedGradient($angle, $color1, $color2, $color3, $color4) {
+  background:linear-gradient($angle + deg, $color1, $color2, $color3, $color4);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+@mixin getSixAnimatedGradient($angle, $color1, $color2, $color3, $color4, $color5, $color6) {
+  background:linear-gradient($angle + deg, $color1, $color2, $color3, $color4, $color5, $color6);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+@mixin getFourGradient($angle, $color1, $color2, $color3, $color4) {
+  background:linear-gradient($angle + deg, $color1, $color2, $color3, $color4);
+}
+
+@mixin getSixGradient($angle, $color1, $color2, $color3, $color4, $color5, $color6) {
+  background:linear-gradient($angle + deg, $color1, $color2, $color3, $color4, $color5, $color6);
+}
+
+.bg-gradient-bm {
+  @include getSixGradient(45, #3750af, #423da2, #59277a, #7a2253, #A2234E, #AD1414);
+}
+
+.bg-gradient-bp {
+  @include getSixGradient(45, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}
+
+.bg-gradient-gy {
+  @include getSixGradient(45, #FFB302, #FFBA01, #FEC300, #FFCF00, #FED901, #FFDF01);
+}
+
+.bg-animated-gradient-bm {
+  @include getSixAnimatedGradient(45, #3750af, #423da2, #59277a, #7a2253, #A2234E, #AD1414);
+}
+
+.bg-animated-gradient-bp {
+  @include getSixAnimatedGradient(45, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}
+
+.bg-animated-gradient-gy {
+  @include getSixAnimatedGradient(45, #FFB302, #FFBA01, #FEC300, #FFCF00, #FED901, #FFDF01);
+}
+
+
+.bg-animated-gradient-bb {
+  @include getFourAnimatedGradient(45, rgb(17, 176, 200), rgb(20, 176, 199), rgb(37, 180, 201), rgb(52, 180, 199));
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

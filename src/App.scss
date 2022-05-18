@@ -1,2 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import "public/scss/animations/hover";
+@import "public/scss/colors/colors";
 @import "~bootstrap/scss/bootstrap";
-@import "public/scss/components/favourite-star";
+@import "../public/scss/components/favourite/favourite";
+@import "public/scss/components/accordion/accordion";
+@import "public/scss/components/pagination/pagination";
+
+@import "../public/scss/components/background/background-gradient";
+@import "../public/scss/components/background/background";
+@import "~react-multi-carousel/lib/styles.css";
+
+@import "../public/scss/components/button/button";
+@import "../public/scss/components/button/button-blob-small";
+@import "../public/scss/components/button/button-blob-medium";
+@import "../public/scss/components/button/button-blob-large";
+
+body {
+  font-family: Poppins,serif;
+  background: $secondary;
+
+  Nav {
+    background: $primary;
+  }
+
+}

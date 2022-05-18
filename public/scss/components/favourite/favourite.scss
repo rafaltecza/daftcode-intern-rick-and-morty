@@ -1,34 +1,34 @@
-$Fav-size: 50px;
-$Fav-lineThickness: 4px;
+$favourite-size: 50px;
+$favourite-lineThickness: 4px;
 
-.Fav {
+.favourite {
   position: relative;
-  width: $Fav-size;
-  height: $Fav-size;
+  width: $favourite-size;
+  height: $favourite-size;
   cursor: pointer;
 }
 
-.Fav-checkbox {
+.favourite-checkbox {
   position: absolute;
   z-index: -1;
   opacity: 0;
 
   &:checked {
-    ~ .Fav-bloom {
+    ~ .favourite-bloom {
       animation: background 0.5s ease both;
     }
 
-    ~ .Fav-sparkle .Fav-sparkle-line::before {
+    ~ .favourite-sparkle .favourite-sparkle-line::before {
       animation: line 1s ease both;
     }
 
-    ~ .Fav-star {
+    ~ .favourite-star {
       animation: star 1s ease both;
     }
   }
 }
 
-.Fav-label {
+.favourite-label {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -37,7 +37,7 @@ $Fav-lineThickness: 4px;
   z-index: 2;
 }
 
-.Fav-label-text {
+.favourite-label-text {
   position: absolute;
   left: -10000px;
   top: auto;
@@ -46,7 +46,7 @@ $Fav-lineThickness: 4px;
   overflow: hidden;
 }
 
-.Fav-bloom {
+.favourite-bloom {
   position: absolute;
   z-index: 1;
   top: 0;
@@ -60,7 +60,7 @@ $Fav-lineThickness: 4px;
   will-change: border-width;
 }
 
-.Fav-sparkle-line {
+.favourite-sparkle-line {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -69,10 +69,10 @@ $Fav-lineThickness: 4px;
     position: absolute;
     z-index: 1;
     top: 30%;
-    width: $Fav-lineThickness;
+    width: $favourite-lineThickness;
     height: 0;
     left: calc(50% - 2px);
-    border-radius: $Fav-lineThickness/2;
+    border-radius: $favourite-lineThickness/2;
     background: #fa733e;
     will-change: top, height;
     content: "";
@@ -99,7 +99,7 @@ $Fav-lineThickness: 4px;
   }
 }
 
-.Fav-star {
+.favourite-star {
   z-index: 1;
   padding: 10px;
   width: 100%;
@@ -155,7 +155,7 @@ $Fav-lineThickness: 4px;
 
 @keyframes background {
   0% {
-    border-width: $Fav-size/2;
+    border-width: $favourite-size/2;
     transform: scale(0);
   }
 

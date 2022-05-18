@@ -3,7 +3,6 @@ import { FaBars } from 'react-icons/fa'
 import styled from "styled-components";
 
 export const Nav = styled.nav`
-  background: #000;
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -21,8 +20,13 @@ export const NavLink = styled(Link)`
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
+
   &.active {
     color: #15cdfc;
+  }
+
+  :hover {
+    color: #b3ebff;
   }
 `;
 

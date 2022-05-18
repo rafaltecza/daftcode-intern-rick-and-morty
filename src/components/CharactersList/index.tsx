@@ -1,8 +1,9 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {Dispatch, SetStateAction, useEffect, useRef, useState} from "react";
 import CharacterDemo from "../Character/Demo";
 import useLocalStorage from "react-use-localstorage";
 import Search from "../Search";
 import Pagination from "../Pagination";
+import {Loader} from "../Loader";
 
 export enum CharactersType {
     ALL = 0,
@@ -11,13 +12,17 @@ export enum CharactersType {
 
 interface IRequiredCharactersProps {
     type: number
+    updateCount: Dispatch<SetStateAction<number>>
+    search?: string
+    status?: string
+    gender?: string
+    species?: string
+    pageNumber: number
+    updatePageNumber: Dispatch<SetStateAction<number>>
 }
 
-const Characters = ({type}: IRequiredCharactersProps) => {
+const CharactersList = ({type, updateCount, search = "", status = "", gender = "", species = "", pageNumber, updatePageNumber}: IRequiredCharactersProps) => {
     const [isLoading, setIsLoading] = useState(true);
-    let [pageNumber, updatePageNumber] = useState(1);
-    let [search, setSearch] = useState("");
-
 
     const [data, setData] = useState({
         info: {
@@ -29,100 +34,98 @@ const Characters = ({type}: IRequiredCharactersProps) => {
         results: []
     });
 
-
-    let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
-
+    let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
     useEffect(() => {
 
+        (async function () {
+            switch (type) {
+                case CharactersType.ALL:
+                    await fetch(api).then((res) => res.json().then((myJson) => {
+                        if (res.ok) {
+                            setData(myJson)
+                            updateCount(myJson['info']['count']);
+                        } else {
+                            setData({
+                                info: {
+                                    count: 1,
+                                    pages: 1,
+                                    next: 0,
+                                    prev: 0
+                                },
+                                results: []
+                            })
+                        }
+                        setIsLoading(false);
+                    }).catch((error) => {}));
+                    break;
+                case CharactersType.FAVOURITES:
+                    const items = JSON.parse(localStorage.getItem('favourites') as string);
 
-        switch (type) {
-            case CharactersType.ALL:
-                (async function () {
-                    let data = await fetch(api).then((res) => res.json());
-                    setData(data);
-                    setIsLoading(false);
-                })();
-                break;
-            case CharactersType.FAVOURITES:
-                getFavouritesData();
-                break;
-        }
-
-    }, [api])
-
-    const getFavouritesData = () => {
-
-        fetch('https://rickandmortyapi.com/api/character', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            }
-        )
-            .then(function (response) {
-                console.log(response)
-                return response.json();
-            })
-            .then(function (myJson) {
-                console.log(myJson.results);
-
-                const items = JSON.parse(localStorage.getItem('DFX-favourites') as string);
-                if (items) {
-
-                    let newArray = [{}];
-                    newArray = [];
-                    const deleteItem = (id: number) => {
-                        console.log("ROBIE " + id);
-                        console.log(myJson.results)
-                        const test = myJson.results;
-                        test.map((item: any) => {
-                            if(item["id"] == id) {
-                                newArray.push(item)
-                            }
-                        })
+                    if(!items) {
+                        setIsLoading(false);
+                        break;
                     }
 
-                    items.map((item: number) => {
-                        deleteItem(item);
-                    })
-
-                    const json = JSON.stringify(newArray);
-                    setData(JSON.parse(json));
-                    console.log("TEST");
-                    console.log(json);
-
+                    const apiFavourites = "https://rickandmortyapi.com/api/character/[" + items + "]";
+                    await fetch(apiFavourites).then((res) => res.json().then((myJson) => {
+                        if (res.ok) {
+                            setData({
+                                info: {
+                                    count: myJson.length,
+                                    pages: 1,
+                                    next: 0,
+                                    prev: 0
+                                },
+                                results: myJson
+                            });
+                            updateCount(myJson.length);
+                        } else {
+                            setData({
+                                info: {
+                                    count: 1,
+                                    pages: 1,
+                                    next: 0,
+                                    prev: 0
+                                },
+                                results: []
+                            })
+                        }
+                        setIsLoading(false);
+                    }).catch((error) => {}));
                 }
+        })();
+    }, [api])
 
-                setIsLoading(false);
-            });
-
-
+    let columnType = "col-3";
+    switch (type) {
+        case CharactersType.ALL:
+            columnType = "col-6 col-md-4"
+            break;
+        case CharactersType.FAVOURITES:
+            columnType = "col-6 col-md-4 col-lg-3"
+            break;
     }
 
     return (
         <div>
             {isLoading ? (
-                <div className='spinner-border text-primary' role='status'>
-                    {' '}
-                    <span className='sr-only'>Loading...</span>{' '}
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: '90vh'
+                    }}
+                >
+                    <Loader/>
                 </div>
             ) : (
                 <>
-                    <div className={"row my-3 align-content-between"}>
-                        <div className={"col"}>
-                            <h1>Characters { data['info']['count'] }</h1>
-                        </div>
-                        <div className={"col-auto"}>
-                            <Search setSearch={setSearch} updatePageNumber={updatePageNumber} />
-                        </div>
-                    </div>
-
-
-                    <div className={"row"}>
+                    <div className={"row align-content-center"}>
                         {
                             data && data['results'].length > 0 && data['results'].map((item, index) => {
-                                    return <div key={item["id"]} className={"col-4 my-2"}>
+                                    return <div key={item["id"]} className={columnType + " my-2"}>
                                         <CharacterDemo id={item["id"]} name={item["name"]} image={item["image"]}/>
                                     </div>
                                 }
@@ -141,4 +144,4 @@ const Characters = ({type}: IRequiredCharactersProps) => {
     )
 }
 
-export default Characters;
+export default CharactersList;

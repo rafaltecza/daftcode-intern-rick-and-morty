@@ -1,12 +1,12 @@
 import React from 'react';
-import {Bars, Nav, NavBtnLink, NavLink, NavMenu} from "./NavbarElements";
+import {Bars, Nav, NavLink, NavMenu} from "./NavbarElements";
 
 const Navbar = () => {
     return (
         <>
             <Nav>
                 <NavLink to="/">
-                    <h1>Rick & Morty</h1>
+                    <img className={"img-fluid h-100"} src={"images/logo.svg"} alt={""}/>
                 </NavLink>
                 <Bars/>
                 <NavMenu>
@@ -14,9 +14,6 @@ const Navbar = () => {
                     <NavLink to="/characters">Characters</NavLink>
                     <NavLink to="/favourite-characters">Favourites</NavLink>
                 </NavMenu>
-                {/*<NavBtn>*/}
-                {/*    <NavBtnLink to="/sign-in">Sign In</NavBtnLink>*/}
-                {/*</NavBtn>*/}
             </Nav>
         </>
     );

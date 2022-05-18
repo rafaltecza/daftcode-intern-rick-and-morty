@@ -1,0 +1,67 @@
+@import 'button-blob';
+
+/**
+  Small Blob Button Variables
+ */
+
+$fontSize: 16;
+
+$border-rectangle: 6;
+$paddingX-rectangle: 10;
+$paddingY-rectangle: 5;
+
+$border-circle: 15;
+$paddingX-circle: 3;
+$paddingY-circle: 3;
+
+/**
+  Small Border Buttons
+  - Rectangle
+ */
+
+.blob-btn-border-red-sm {
+  @include mb-blob-btn(red, false, $border-rectangle, $fontSize, $paddingX-rectangle, $paddingY-rectangle);
+}
+
+.blob-btn-border-black-sm {
+  @include mb-blob-btn(black, false, $border-rectangle, $fontSize, $paddingX-rectangle, $paddingY-rectangle);
+}
+
+/**
+  Small Border Buttons
+  - Circle
+ */
+
+.blob-btn-border-circle-red-sm {
+  @include mb-blob-btn(red, false, $border-circle, $fontSize, $paddingX-circle, $paddingY-circle);
+}
+
+.blob-btn-border-circle-black-sm {
+  @include mb-blob-btn(black, false, $border-circle, $fontSize, $paddingX-circle, $paddingY-circle);
+}
+
+/**
+  Small Buttons
+  - Rectangle
+ */
+
+.blob-btn-red-sm {
+  @include mb-blob-btn(red, true, $border-rectangle, $fontSize, $paddingX-rectangle, $paddingY-rectangle);
+}
+
+.blob-btn-black-sm {
+  @include mb-blob-btn(black, true, $border-rectangle, $fontSize, $paddingX-rectangle, $paddingY-rectangle);
+}
+
+/**
+  Small Buttons
+  - Circle
+ */
+
+.blob-btn-circle-black-sm {
+  @include mb-blob-btn(black, true, $border-circle, $fontSize, $paddingX-circle, $paddingY-circle);
+}
+
+.blob-btn-circle-red-sm {
+  @include mb-blob-btn(red, true, $border-circle, $fontSize, $paddingX-circle, $paddingY-circle);
+}

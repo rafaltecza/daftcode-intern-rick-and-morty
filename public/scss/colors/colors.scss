@@ -1,0 +1,79 @@
+$primary: rgb(22, 26, 33);
+$secondary: rgb(14, 17, 22);
+
+$light-text: #eeeeee;
+$dark-text: #161616;
+
+$colors: (
+        black: #161616,
+        black-text: $light-text,
+
+        black-hover: #232323,
+        black-hover-text: $light-text,
+
+        gray: #2a2e33,
+        gray-text: $light-text,
+
+        gray-hover: #2a2e33,
+        gray-hover-text: $light-text,
+
+        light-gray: #bfbfbf,
+        light-gray-text: #161616,
+
+        light-gray-hover: #b9b9b9,
+        light-gray-hover-text: #161616,
+
+        red: #DC3545,
+        red-text: $light-text,
+
+        red-hover: #dc4d57,
+        red-hover-text: $light-text,
+
+        light-green: #D2D2D2,
+        light-green-text: $light-text,
+
+        light-green-hover: #b9b9b9,
+        light-green-hover-text: $light-text,
+
+        green: #28A745,
+        green-text: $light-text,
+
+        green-hover: #36a74b,
+        green-hover-text: $light-text,
+
+        orange: #D2D2D2,
+        orange-text: $dark-text,
+
+        orange-hover: #161616,
+        orange-hover-text: $dark-text,
+
+        gold: #FFC925,
+        gold-text: $dark-text,
+
+        gold-hover: #ffd234,
+        gold-hover-text: $dark-text,
+
+        yellow: #161616,
+        yellow-text: $dark-text,
+
+        yellow-hover: #161616,
+        yellow-hover-text: $dark-text,
+
+        blue: #007BFF,
+        blue-text: $light-text,
+
+        blue-hover: #2383fd,
+        blue-hover-text: $light-text,
+
+        light-blue: #76B3FA,
+        light-blue-text: #76B3FA,
+
+        light-blue-hover: #83c7fa,
+        light-blue-hover-text: #83c7fa,
+
+        white: #eeeeee,
+        white-text: #eeeeee,
+
+        white-hover: #f0f0f0,
+        white-hover-text: #f0f0f0,
+);

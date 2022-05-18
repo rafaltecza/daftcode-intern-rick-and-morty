@@ -1,0 +1,97 @@
+/**
+  Motion Bridge - Button
+ */
+@import '../../colors/colors';
+@import "../../animations/hover";
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.button-square {
+  padding: 10px 14px!important;
+}
+
+.icon-medium {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+}
+
+@mixin dc-btn($colorName, $fill) {
+
+  $color: map-get($colors, $colorName);
+  $color-hover: map-get($colors, $colorName+#{-hover});
+
+  $color-text: map-get($colors, $colorName+#{-text});
+  $color-text-hover: map-get($colors, $colorName+#{-hover-text});
+
+
+  @if $fill {
+    background: $color;
+    color: $color-text!important;
+    border: 0 solid;
+  } @else {
+    border: 2px solid $color;
+    color: $color!important;
+  }
+
+  border-radius: 6 + px;
+  padding: 6px 15px;
+  text-decoration: none;
+  font-size: 15px;
+  margin: 3px 3px 3px 3px;
+
+  &:hover {
+    -webkit-animation: hover 1200ms linear 2 alternate;
+    animation: hover 1200ms linear 2 alternate;
+
+    @if $fill {
+      background: $color-hover;
+      color: $color-text!important;
+    } @else {
+      background: $color;
+      color: $color-text-hover!important;
+    }
+  }
+
+  &:active {
+    -webkit-animation: active 1200ms ease 1 alternate;
+    animation: active 1200ms ease 1 alternate;
+  }
+
+}
+
+.button-red {
+  @include dc-btn(red, true);
+}
+
+.button-border-red {
+  @include dc-btn(red, false);
+}
+
+.button-gold {
+  @include dc-btn(gold, true);
+}
+
+.button-border-gold {
+  @include dc-btn(gold, false);
+}
+
+
+.resize-big {
+  padding: 6px 25px;
+  font-size: 35px;
+}
+
+.resize-medium {
+  padding: 6px 100px;
+  font-size: 15px;
+}
+
+.buttons {
+  margin-top: 50px;
+  text-align: center;
+  border-radius:30px;
+}
