@@ -1,6 +1,7 @@
 # DaftCode | Rick and Morty
 
 Projekt wykonany na potrzeby zadania rekrutacyjnego do grupy DaftCode w 2022 roku.
+https://github.com/trojanowski95/Praktyki-React-2022 
 
 Autor: Rafał Tęcza
 
