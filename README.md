@@ -2,7 +2,7 @@
 
 Projekt wykonany na potrzeby zadania rekrutacyjnego do grupy DaftCode w 2022 roku.
 
-Autor: Rafal Tęcza
+Autor: Rafał Tęcza
 
 # Wymagania
 Strona przygotowana została w środowisku przeglądarki Chrome. 
